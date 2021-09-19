@@ -38,21 +38,34 @@ export function global() {
                 ((response) => {
                     console.log(response.data);
 
-
+                    // Create Dynamic Elements
                     document.querySelector('#searchresults').appendChild(createLi);
                     createLi.appendChild(changeImg);
                     changeImg.classList.add('poster');
+                    console.log(response.data.poster);
                     changeImg.src = response.data.poster;
                     createDiv;
                     createLi.appendChild(createDiv);
                     createH3;
+                    createH3.classList.add('title');
                     createH4Year;
+                    createH4Year.classList.add('year');
                     createH4Type;
+                    createH4Type.classList.add('type');
                     createDiv.appendChild(createH3);
                     createDiv.appendChild(createH4Year);
                     createDiv.appendChild(createH4Type);
                     createP;
+                    createP.classList.add('plot');
                     createLi.appendChild(createP)
+
+
+                    // Add Searchterm Data to Elements
+                    changeImg.src = `${response.data.Poster}`;
+                    createH3.innerHTML = `Title: ${response.data.Title}`;
+                    createH4Year.innerHTML = `Year: ${response.data.Year}`;
+                    createH4Type.innerHTML = `Type: ${response.data.Type}`;
+                    createP.innerHTML = `${response.data.Plot}`;
 
                     document.querySelector('#resultheader').classList.remove('hidden');
 
