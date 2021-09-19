@@ -31,7 +31,7 @@ export function apiLogic() {
 
             console.log(searchterm);
 
-            axios.get(`https://www.omdbapi.com/?apikey=2813b005&t=${searchterm}`)
+            axios.get(`//www.omdbapi.com/?apikey=2813b005&t=${searchterm}`)
          
                 .then
                 ((response) => {
