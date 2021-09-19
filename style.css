@@ -1,9 +1,10 @@
-@import url(styles/variable.scss);
+@import url(styles/variables.scss);
 body {
   width: 100%;
   height: 100%;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  background-color: lightgoldenrodyellow;
 }
 
 nav {
@@ -24,8 +25,7 @@ nav {
   border-top: none;
   background-color: white;
   font-weight: 500;
-  position: -webkit-sticky;
-  position: sticky;
+  position: relative;
   top: 0px;
 }
 
@@ -38,9 +38,17 @@ nav ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
   padding: 0;
   padding-left: 5%;
   padding-right: 5%;
+  margin-bottom: 0;
+}
+
+nav ul li {
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 nav ul li :hover {
@@ -49,19 +57,35 @@ nav ul li :hover {
           text-decoration: underline 1px solid black;
 }
 
+.modal span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.modal a {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 main {
   margin-left: 5%;
   margin-right: 5%;
 }
 
-@media (min-width: 1700px) {
-  #searchresults li {
-    max-width: 40vw;
-  }
-  #searchresults li p {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
+main div {
+  height: 25vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 #searchresults ul {
@@ -69,12 +93,13 @@ main {
 }
 
 #searchresults li {
-  max-width: 60vw;
+  max-width: 70vw;
   height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border: 1px solid black;
+  background-color: white;
 }
 
 #searchresults li img {
@@ -94,8 +119,11 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   width: 100%;
-  max-height: 20%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -109,5 +137,36 @@ main {
   max-width: 90%;
   height: auto;
   word-wrap: normal;
+}
+
+@media (min-width: 1700px) {
+  #searchresults li {
+    max-width: 40vw;
+  }
+  #searchresults li p {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+@media (max-width: 1000px) {
+  ul {
+    width: 90vw;
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0%;
+  }
+  #searchresults h3, #searchresults h4 {
+    font-size: small;
+  }
+  #searchresults li {
+    min-width: 100% !important;
+    padding: 2%;
+    font-size: x-small;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,19 +1,26 @@
-export function creation() {
+export function modalLogic() {
 
-    const createLi = document.createElement('li').classList.add('searchres');
+    const openEls = document.querySelectorAll("[data-open]");
+    const isVisible = "is-visible";
 
-    const changeImgSrc = document.getElementsByClassName('poster').src;
+    for (const el of openEls) {
+        el.addEventListener("click", function () {
+            const modalId = this.dataset.open;
+            document.getElementById(modalId).classList.add(isVisible);
+        });
+    }
 
-    const createDiv = document.createElement('div');
+    document.addEventListener("click", e => {
+        if (e.target == document.querySelector(".modal.is-visible")) {
+            document.querySelector(".modal.is-visible").classList.remove(isVisible);
+        }
+    });
 
-    const createH3 = document.createElement('h3').classList.add('title');
-
-    const createH4Year = document.createElement('h4').classList.add('year');
-
-    const createH4Type = document.createElement('h4').classList.add('type');
-
-    const createP = document.createElement('p').classList.add('plot');
-
+    document.addEventListener("keyup", e => {
+        if (e.key == "Escape" && document.querySelector(".modal.is-visible")) {
+            document.querySelector(".modal.is-visible").classList.remove(isVisible);
+        }
+    });
 
 
 }

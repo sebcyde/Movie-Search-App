@@ -1,4 +1,4 @@
-export function global() {
+export function apiLogic() {
 
 
     const createLi = document.createElement('li');

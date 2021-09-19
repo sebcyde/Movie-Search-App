@@ -1,3 +1,3 @@
-import { global } from "./js/apis.js";
+import { apiLogic } from "./js/apis.js";
 
-global();
+apiLogic();
